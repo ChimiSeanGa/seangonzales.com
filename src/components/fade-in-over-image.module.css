@@ -1,0 +1,14 @@
+.fioi-wrapper {
+   position: relative;
+}
+
+.fioi-header {
+   position: fixed;
+}
+
+.fioi-content-wrapper {
+   position: relative;
+   padding-top: 700px;
+   background-color: white;
+   z-index: 10;
+}

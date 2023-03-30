@@ -1,16 +1,16 @@
 .container {
    margin: auto;
-   font-family: Georgia, serif;
+   font-family: Lato, sans-serif;
 }
 
 .navbar {
    position: sticky;
    position: -webkit-sticky;
    top: 0;
+   z-index: 100;
    padding: 16px 0;
    box-shadow: 0 3px 5px 3px #eee;
    font-size: 18px;
-   z-index: 5;
    background-color: white;
 }
 
