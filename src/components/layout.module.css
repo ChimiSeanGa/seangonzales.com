@@ -1,6 +1,6 @@
 .container {
    margin: auto;
-   font-family: Lato, sans-serif;
+   font-family: "Montserrat", sans-serif;
 }
 
 .navbar {
@@ -10,8 +10,11 @@
    z-index: 100;
    padding: 16px 0;
    box-shadow: 0 3px 5px 3px #eee;
-   font-size: 18px;
+   font-size: 16px;
    background-color: white;
+   letter-spacing: 0.1em;
+   font-weight: 800;
+   text-transform: uppercase;
 }
 
 .home-link {
@@ -46,9 +49,18 @@
    color: black;
    text-decoration: none;
    border-radius: 5px;
-   transition: background-color 70ms;
+   transition: color 150ms;
 }
 
 .nav-link-text:hover {
-   background-color: #bdf;
+   color: #0098DB;
+}
+
+.footer {
+   border-top: 1px solid #ddd;
+   padding: 50px 20px;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   font-weight: 300;
 }

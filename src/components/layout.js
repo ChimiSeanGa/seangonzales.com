@@ -10,8 +10,10 @@ import {
    navLinks,
    navLinkItem,
    navLinkText,
+   footer,
 } from './layout.module.css'
 import './styles.css'
+import { StaticImage } from "gatsby-plugin-image";
 
 const Layout = ({ children }) => {
    return [
@@ -26,13 +28,19 @@ const Layout = ({ children }) => {
          <meta name="theme-color" content="#ffffff" />
       </Helmet>,
       <div className={container}>
+         <div>
+            <StaticImage
+               src="../images/squares.png"
+               alt={"Domain coloring of a random finite Blaschke product"}
+            />
+         </div>
          <nav className={navbar}>
             <Link to="/" className={homeLink}>
                <GiMoebiusTriangle className={homeLogo}/>Sean Gonzales
             </Link>
             <ul className={navLinks}>
                <li className={navLinkItem}>
-                  <Link to="/gallery" className={navLinkText}>Gallery</Link>
+                  <Link to="/art" className={navLinkText}>Art</Link>
                </li>
                <li className={navLinkItem}>
                   <Link to="/teaching" className={navLinkText}>Teaching</Link>
@@ -40,14 +48,14 @@ const Layout = ({ children }) => {
                <li className={navLinkItem}>
                   <Link to="/research" className={navLinkText}>Research</Link>
                </li>
-               <li className={navLinkItem}>
-                  <Link to="/about" className={navLinkText}>About</Link>
-               </li>
             </ul>
          </nav>
          <main>
             {children}
          </main>
+         <div className={footer}>
+            Copyright &#169; 2023 Sean Gonzales. All rights reserved.
+         </div>
       </div>
    ];
 }
