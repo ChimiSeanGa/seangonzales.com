@@ -12,6 +12,7 @@ const IndexPage = () => {
                <StaticImage
                   src="../images/artdisplay.png"
                   alt="Myself in front of a table displaying some of my computer generated art"
+                  loading="eager"
                />
             </PageImage>
             <p>

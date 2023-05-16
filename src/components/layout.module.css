@@ -17,6 +17,20 @@
    text-transform: uppercase;
 }
 
+.navbar-button {
+   display: none;
+}
+
+.navbar-name {
+   width: 100%;
+   text-align: center;
+   font-size: 32px;
+   letter-spacing: 0.25em;
+   font-weight: 500;
+   text-transform: uppercase;
+   padding-bottom: 15px;
+}
+
 .home-link {
    position: absolute;
    top: 9px;
@@ -63,4 +77,71 @@
    text-transform: uppercase;
    letter-spacing: 0.1em;
    font-weight: 300;
+}
+
+.nav-open {}
+
+@media (max-width: 768px) {
+   .navbar {
+      vertical-align: middle;
+   }
+
+   .navbar-name {
+      height: 30px;
+      padding-bottom: 0;
+      font-size: 28px;
+      line-height: 30px;
+   }
+
+   .navbar-button {
+      padding: 0;
+      display: inline-block;
+      position: absolute;
+      left: 18px;
+      margin: 0 auto;
+      background-color: white;
+      /*font-size: 20px;*/
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+   }
+
+   .navbar-button svg {
+      /*vertical-align: middle;*/
+   }
+
+   .nav-links {
+      height: 0;
+      overflow: hidden;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      align-items: center;
+      -webkit-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+   }
+
+   .nav-links-open {
+      height: 200px;
+      -webkit-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      overflow: auto;
+      margin-top: 20px;
+   }
+
+   .nav-link-item {
+      margin: 10px 0;
+   }
+}
+
+@media (max-width: 480px) {
+   .navbar {
+      line-height: 22px;
+   }
+
+   .navbar-name {
+      font-size: 22px;
+   }
 }
