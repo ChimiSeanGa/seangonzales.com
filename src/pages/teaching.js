@@ -1,6 +1,7 @@
 import * as React from 'react'
 import PageLayout from "../components/page-layout";
 import PageContent from "../components/page-content";
+import Seo from "../components/seo";
 
 const TeachingPage = () => {
    return (
@@ -8,7 +9,11 @@ const TeachingPage = () => {
          <PageContent pageTitle="Teaching">
             <p>Current and past courses I've taught.</p>
             <h2>Current Courses</h2>
-            I am currently not teaching any courses.
+            <ul>
+               <li><a href="https://math.berkeley.edu/~apaulin/Math%201%20(Fall%202023).html">
+                  Math 1 - Fundamentals of Lower Division Mathematics
+               </a>, Fall 2023</li>
+            </ul>
 
             <h2>Past Courses</h2>
             <ul>
@@ -26,6 +31,6 @@ const TeachingPage = () => {
    )
 }
 
-export const Head = () => <title>Teaching</title>
+export const Head = () => <Seo title="Teaching" />
 
 export default TeachingPage

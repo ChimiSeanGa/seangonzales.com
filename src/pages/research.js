@@ -1,6 +1,7 @@
 import * as React from 'react'
 import PageLayout from "../components/page-layout";
 import PageContent from "../components/page-content";
+import Seo from "../components/seo";
 
 const ResearchPage = () => {
    return (
@@ -33,6 +34,6 @@ const ResearchPage = () => {
    )
 }
 
-export const Head = () => <title>Research</title>
+export const Head = () => <Seo title="Research" />
 
 export default ResearchPage

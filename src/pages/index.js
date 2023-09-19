@@ -2,6 +2,7 @@ import * as React from 'react'
 import PageLayout from "../components/page-layout"
 import PageContent from "../components/page-content"
 import PageImage from "../components/page-image";
+import Seo from "../components/seo";
 import {StaticImage} from "gatsby-plugin-image";
 
 const IndexPage = () => {
@@ -41,6 +42,6 @@ const IndexPage = () => {
    )
 }
 
-export const Head = () => <title>Sean Gonzales</title>
+export const Head = () => <Seo title="Home" />
 
 export default IndexPage
