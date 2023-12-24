@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
       createPage({
          path: `${node.frontmatter.variant}/${node.frontmatter.slug}`,
-         component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+         component: postTemplate,
          context: {
             ...context,
             id: node.id,
