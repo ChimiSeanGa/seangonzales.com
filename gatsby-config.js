@@ -2,11 +2,14 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  siteMetadata: {
-    title: `Sean Gonzales`,
-    siteUrl: `https://www.yourdomain.tld`,
-  },
-  plugins: [
+   siteMetadata: {
+      title: `Sean Gonzales`,
+      siteUrl: `https://www.yourdomain.tld`,
+   },
+   flags: {
+     DEV_SSR: true
+   },
+   plugins: [
      "gatsby-plugin-image",
      "gatsby-plugin-sharp",
      "gatsby-plugin-react-helmet",
