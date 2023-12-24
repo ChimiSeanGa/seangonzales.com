@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import PageLayout from "../../components/page-layout";
-import PageContent from "../../components/page-content";
-import Seo from "../../components/seo";
+import PageLayout from "../components/page-layout";
+import PageContent from "../components/page-content";
+import Seo from "../components/seo";
 
-const CodingProject = ({ data, children }) => {
+const Applet = ({ data, children }) => {
    const image = getImage(data.mdx.frontmatter.hero_image);
    return (
       <PageLayout>
@@ -44,6 +44,6 @@ export const query = graphql`
    }
 `
 
-export const Head = () => <Seo title="Coding Project" />
+export const Head = () => <Seo title="Applet" />
 
-export default CodingProject
+export default Applet

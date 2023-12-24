@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import PageLayout from "../../components/page-layout";
-import PageContent from "../../components/page-content";
-import Seo from "../../components/seo";
+import PageLayout from "../components/page-layout";
+import PageContent from "../components/page-content";
+import Seo from "../components/seo";
 import Gallery from '@browniebroke/gatsby-image-gallery';
 
 const ArtProject = ({ data, children }) => {
