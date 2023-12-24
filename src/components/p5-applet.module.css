@@ -1,0 +1,10 @@
+.container {
+   position: relative;
+   width: 100%;
+}
+
+.canvas-wrapper {
+   margin: 0 auto;
+   width: 70%;
+   text-align: center;
+}

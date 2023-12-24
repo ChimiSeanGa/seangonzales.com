@@ -4,9 +4,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PageLayout from "../../components/page-layout";
 import PageContent from "../../components/page-content";
 import Seo from "../../components/seo";
+import Gallery from '@browniebroke/gatsby-image-gallery';
 
 const ArtProject = ({ data, children }) => {
    const image = getImage(data.mdx.frontmatter.hero_image);
+   const images = data.allFile.edges.map(({ node }) => node.childImageSharp)
    return (
       <PageLayout>
          <PageContent pageTitle={data.mdx.frontmatter.title}>
@@ -17,13 +19,15 @@ const ArtProject = ({ data, children }) => {
                />
             </div>
             {children}
+            <h2>Gallery</h2>
+            <Gallery images={images} />
          </PageContent>
       </PageLayout>
    )
 }
 
 export const query = graphql`
-   query MyQuery($id: String) {
+   query MyQuery($id: String, $galleryPath: String) {
       mdx(id: {eq: $id}) {
          frontmatter {
             title
@@ -36,6 +40,22 @@ export const query = graphql`
                      layout: FULL_WIDTH
                      aspectRatio: 1.77
                      placeholder: BLURRED
+                  )
+               }
+            }
+         }
+      }
+      allFile(filter: {relativeDirectory: {eq: $galleryPath}}) {
+         edges {
+            node {
+               childImageSharp {
+                  thumb: gatsbyImageData(
+                     width: 200
+                     height: 200
+                     placeholder: BLURRED
+                  )
+                  full: gatsbyImageData(
+                     layout: FULL_WIDTH
                   )
                }
             }

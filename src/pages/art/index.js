@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import PageLayout from "../../components/page-layout";
 import PageContent from "../../components/page-content";
 import Seo from "../../components/seo";
-import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import ProjectListItem from "../../components/project-list-item";
 
 const ArtPage = ({ data }) => {
    return (
@@ -11,20 +11,9 @@ const ArtPage = ({ data }) => {
          <PageContent pageTitle="Art">
             {
                data.allMdx.nodes.map((node) => {
-                  const image = getImage(node.frontmatter.hero_image);
                   return (
                      <article key={node.id}>
-                        <h2>
-                           <Link to={`/art/${node.frontmatter.slug}`}>
-                              {node.frontmatter.title}
-                           </Link>
-                        </h2>
-                        <div style={{border: "1px solid black"}}>
-                           <GatsbyImage
-                              alt={node.frontmatter.hero_image_alt}
-                              image={image}
-                           />
-                        </div>
+                        <ProjectListItem node={node} subdirectory={"art"} />
                      </article>
                   )
                })
@@ -47,8 +36,7 @@ export const query = graphql`
                hero_image {
                   childImageSharp {
                      gatsbyImageData(
-                        layout: FULL_WIDTH
-                        aspectRatio: 1.77
+                        aspectRatio: 1
                         placeholder: BLURRED
                      )
                   }

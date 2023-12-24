@@ -1,0 +1,18 @@
+.container {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   padding: 20px 0;
+}
+
+.img-wrapper {
+   flex-direction: row;
+   align-self: center;
+   width: 40%;
+}
+
+.title-wrapper {
+   flex-direction: row;
+   align-self: center;
+   width: 40%;
+}

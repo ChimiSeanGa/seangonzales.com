@@ -123,7 +123,7 @@
    }
 
    .nav-links-open {
-      height: 200px;
+      height: 250px;
       -webkit-transition: all 0.4s ease;
       -o-transition: all 0.4s ease;
       transition: all 0.4s ease;

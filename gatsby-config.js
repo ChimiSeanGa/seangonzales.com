@@ -24,6 +24,13 @@ module.exports = {
            path: `${__dirname}/art_projects`,
         }
      },
+     {
+        resolve: "gatsby-source-filesystem",
+        options: {
+           name: `applets`,
+           path: `${__dirname}/applets`,
+        }
+     },
      "gatsby-plugin-mdx",
      {
         resolve: "gatsby-remark-images",

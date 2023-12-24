@@ -1,0 +1,16 @@
+---
+title: "Domain Coloring"
+slug: "domain-coloring"
+variant: "applets"
+hero_image: "./weierstrass_sigma2.png"
+hero_image_alt: "Domain coloring of the Weierstrass sigma function"
+hero_image_credit_text: "Sean Gonzales"
+hero_image_credit_link: "https://seangonzales.com"
+---
+
+import sketch from './domainColoring';
+import P5Applet from "../../src/components/p5-applet";
+
+Domain coloring is a technique for visualizing complex-valued functions, that is, functions which take a complex number as input and return a complex number as output. Each point in the complex plane is assigned a color. A function f is drawn by coloring the pixel at the coordinates (Re(z), Im(z)) with the color assigned to the output f(z). Try it for yourself below!
+
+<P5Applet sketch={sketch} />
