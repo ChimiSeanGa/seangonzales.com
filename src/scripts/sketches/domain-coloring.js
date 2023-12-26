@@ -1,4 +1,4 @@
-import { glslComplex, complexParser } from "../../scripts/glsl-complex";
+import { glslComplex, complexParser } from "../glsl/glsl-complex";
 
 const sketch = (p) => {
    let funStr = "z";

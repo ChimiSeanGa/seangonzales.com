@@ -4,9 +4,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PageLayout from "../components/page-layout";
 import PageContent from "../components/page-content";
 import Seo from "../components/seo";
+import P5Applet from "../components/p5-applet";
 
 const Applet = ({ data, children }) => {
+   const [sketch, setSketch] = React.useState(null);
+
    const image = getImage(data.mdx.frontmatter.hero_image);
+   import(`../scripts/sketches/${data.mdx.frontmatter.slug}.js`).then(result => setSketch(result));
+
    return (
       <PageLayout>
          <PageContent pageTitle={data.mdx.frontmatter.title}>
@@ -17,6 +22,7 @@ const Applet = ({ data, children }) => {
                />
             </div>
             {children}
+            {sketch ? <P5Applet sketch={sketch.default} /> : null}
          </PageContent>
       </PageLayout>
    )
@@ -27,6 +33,7 @@ export const query = graphql`
       mdx(id: {eq: $id}) {
          frontmatter {
             title
+            slug
             hero_image_alt
             hero_image_credit_link
             hero_image_credit_text

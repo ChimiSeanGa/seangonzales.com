@@ -1,17 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import * as React from 'react'
 import p5 from 'p5';
 import { container, canvasWrapper } from './p5-applet.module.css';
 
 const P5Applet = ({ sketch }) => {
-   const sketchRef = useRef();
+   const sketchRef = React.useRef();
 
-   useEffect(() => {
-      const myP5 = new p5(sketch, sketchRef.current);
+   React.useEffect(() => {
+      let myP5;
+      if (sketch) {
+         myP5 = new p5(sketch, sketchRef.current);
+      }
 
       return () => {
-         myP5.remove();
+         if (myP5) {
+            myP5.remove();
+         }
       }
-   }, []);
+   }, [sketch]);
 
    return (
       <div className={container}>
