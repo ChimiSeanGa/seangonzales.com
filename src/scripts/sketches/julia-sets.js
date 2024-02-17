@@ -8,6 +8,7 @@ const sketch = (p) => {
    let sliderLabel = null;
 
    let wrapper = null;
+   let cnv = null;
 
    let sh = null;
 
@@ -107,7 +108,8 @@ const sketch = (p) => {
 
    p.setup = () => {
       wrapper = document.getElementById("p5Wrapper");
-      p.createCanvas(wrapper.offsetWidth, wrapper.offsetWidth, p.WEBGL);
+      cnv = p.createCanvas(wrapper.offsetWidth, wrapper.offsetWidth, p.WEBGL);
+      cnv.style("touch-action", "none");
       p.pixelDensity(1);
 
       sh = p.createShader(vs, fs());
