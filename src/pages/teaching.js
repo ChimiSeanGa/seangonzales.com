@@ -10,13 +10,14 @@ const TeachingPage = () => {
             <p>Current and past courses I've taught.</p>
             <h2>Current Courses</h2>
             <ul>
-               <li><a href="https://math.berkeley.edu/~apaulin/Math%201%20(Fall%202023).html" target="_blank" rel="noreferrer">
-                  Math 1 - Fundamentals of Lower Division Mathematics
-               </a>, Fall 2023</li>
+               <li>Math 54 LEC 001 - Linear Algebra and Differential Equations (DIS 107), Spring 2024</li>
             </ul>
 
             <h2>Past Courses</h2>
             <ul>
+               <li><a href="https://math.berkeley.edu/~apaulin/Math%201%20(Fall%202023).html" target="_blank" rel="noreferrer">
+                     Math 1 LEC 001 - Fundamentals of Lower Division Mathematics
+               </a>, Fall 2023</li>
                <li><a href="https://math.berkeley.edu/~sgonzales/pce.html" target="_blank" rel="noreferrer">
                   Pre-Calculus Essentials Workshop
                </a>, Spring 2023</li>
@@ -30,9 +31,10 @@ const TeachingPage = () => {
             <h2>Mentoring</h2>
             Below is a list of undergraduate students that I have mentored through the <a href="https://math.berkeley.edu/wp/drp/" target="_blank" rel="noreferrer">Directed Reading Program (DRP)</a> at UC Berkeley, along with the title of our project.
             <ul>
-               <li>Seongwon Ko, "Elliptic Curves and Cryptography", Fall 2022</li>
-               <li>Wenqing Wei, "Modular Forms and Galois Representations", Spring 2023</li>
+               <li>Yunchi Zheng, "Modular Forms and Modular Curves", Spring 2024</li>
                <li>Zain Shields, "Congruences of the Partition Function", Fall 2023</li>
+               <li>Wenqing Wei, "Modular Forms and Galois Representations", Spring 2023</li>
+               <li>Seongwon Ko, "Elliptic Curves and Cryptography", Fall 2022</li>
             </ul>
          </PageContent>
       </PageLayout>
