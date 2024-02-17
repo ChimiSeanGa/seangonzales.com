@@ -36,6 +36,7 @@ export const query = graphql`
                      layout: FULL_WIDTH
                      aspectRatio: 1.77
                      placeholder: BLURRED
+                     transformOptions: { fit: COVER, cropFocus: CENTER }
                   )
                }
             }
