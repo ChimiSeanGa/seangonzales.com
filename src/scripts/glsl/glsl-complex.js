@@ -59,6 +59,12 @@ export const glslComplex = `
    }
    
    float cx_arg(vec2 a) {
+      if (a.x == 0.0) {
+         if (a.y >= 0.0) {
+            return 1.57079632;
+         }
+         return -1.57079632;
+      }
       return atan(a.y, a.x);
    }
    
