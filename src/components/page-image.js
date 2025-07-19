@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {
-   container
+   containerLeft,
+    containerRight,
 } from "./page-image.module.css";
 
-const PageImage = ({ children }) => {
+const PageImage = ({ children, side="left" }) => {
    return (
-      <div className={container}>
+      <div className={side === "left" ? containerLeft : containerRight}>
          { children }
       </div>
    )
