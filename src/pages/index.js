@@ -17,7 +17,7 @@ const IndexPage = () => {
                />
             </PageImage>
             <p>
-               I'm a graduate student in mathematics at the University of California at Berkeley.
+               I'm a graduate student in mathematics at the University of California at Berkeley, advised by Sug Woo Shin.
                My areas of interest include elliptic curves, Galois representations, automorphic forms,
                Shimura varieties, and the larger scope of the Langlands program. I am particularly interested
                in the role of Hasse invariants in the association between automorphic representations and Galois
@@ -27,7 +27,7 @@ const IndexPage = () => {
             </p>
             <h2>An Overview</h2>
             <ul>
-               <li><b>Graduate Student</b> at UC Berkeley, 2020-Present</li>
+               <li><b>Graduate Student</b> at UC Berkeley, advised by Sug Woo Shin, 2020-Present</li>
                <li><b>Software Engineer</b> at Apple, Inc., 2019-2020</li>
                <li><b>B.S.</b> in Computer Science and Pure Mathematics at Cal Poly SLO, June 2019</li>
                <li><b>Intern</b> at Apple, Inc. as a web developer, Summer 2018</li>

@@ -55,10 +55,10 @@ const TeachingPage = () => {
             </ul>
 
             <h3>Current Courses</h3>
-            I am not teaching during Summer 2025.
-            {/*<ul>*/}
-            {/*   */}
-            {/*</ul>*/}
+            {/*I am not teaching during Summer 2025.*/}
+            <ul>
+               <li><a href="https://math.berkeley.edu/~sgonzales/math1_fall2025" target="_blank">Math 1 LEC 001 - Foundations of Lower Division Mathematics</a>, Fall 2025</li>
+            </ul>
 
             <h3>Past Courses</h3>
             <ul>
