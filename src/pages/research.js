@@ -10,17 +10,16 @@ const ResearchPage = () => {
             <h2>Publications</h2>
             <ul>
                <li>
-                  Gonzales, S., Migler, T. (2020). The Densest k Subgraph Problem in b-Outerplanar Graphs.
-                  In: Cherifi, H., Gaito, S., Mendes, J., Moro, E., Rocha, L. (eds) Complex Networks and Their
-                  Applications VIII. COMPLEX NETWORKS 2019. Studies in Computational Intelligence, vol 881.
-                  Springer, Cham. <a href="https://doi.org/10.1007/978-3-030-36687-2_10">
-                  https://doi.org/10.1007/978-3-030-36687-2_10</a>
+                  Sean Gonzales. <i><a href="/papers/Compact_Abelian_Type_Hasse_Invariants.pdf">Strata Hasse Invariants on Proper Abelian Type Shimura Varieties and Applications to Galois Representations</a></i>. In preparation.
+               </li>
+               <li>
+                  Sean Gonzales and Theresa Migler. “<a href="https://link.springer.com/chapter/10.1007/978-3-030-36687-2_10">The Densest k Subgraph Problem in b-Outerplanar Graphs</a>”. In: <i>Complex Networks and Their Applications VIII</i>. Ed. by Hocine Cherifi et al. Cham: Springer International Publishing, 2020, pp. 116–127. isbn: 978-3-030-36687-2.
                </li>
             </ul>
             
             <h2>Write-ups</h2>
             <ul>
-               <li><i>Galois Representations Attached to Weight 1 Modular Forms</i>, <a href="/papers/weight1.pdf">link to PDF</a></li>
+               <li><i><a href="/papers/weight1.pdf">Galois Representations Attached to Weight 1 Modular Forms</a></i></li>
             </ul>
 
             <h2>Talks</h2>
