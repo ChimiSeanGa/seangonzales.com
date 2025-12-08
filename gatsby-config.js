@@ -34,11 +34,17 @@ module.exports = {
            path: `${__dirname}/applets`,
         }
      },
-     "gatsby-plugin-mdx",
      {
-        resolve: "gatsby-remark-images",
+        resolve: "gatsby-plugin-mdx",
         options: {
-           maxWidth: 780,
+            gatsbyRemarkPlugins: [
+                {
+                    resolve: "gatsby-remark-images",
+                    options: {
+                        maxWidth: 780,
+                    }
+                },
+            ]
         }
      },
      "gatsby-transformer-sharp",

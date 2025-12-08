@@ -1,9 +1,9 @@
 import { glslComplex, complexParser } from "../glsl/glsl-complex";
 import { glslColor } from "../glsl/glsl-color";
-import { evaluate, compile, distance } from "mathjs";
 
 const sketch = (p) => {
-   let funStr = "z";
+   let initialInputStr = "z^3 - 1";
+   let funStr = complexParser(initialInputStr);
    let zoomFactor = 1.0;
    let center = [0, 0];
 
@@ -42,13 +42,19 @@ const sketch = (p) => {
       uniform vec2 uCenter;
       
       #define PI 3.14159265359
+      #define EPSILON 0.00001
       
       ${glslComplex}
       ${glslColor}
       
       vec3 complexToHsv(vec2 z) {
-         //return vec3(cx_arg(z)/(2.0*PI), 1.0, 2.0/PI*atan(cx_modulus(z)));
-         return vec3(cx_arg(z)/(2.0*PI), 1.0, 1.0);
+         float zmod = cx_modulus(z);
+         float value = 0.0;
+         if (zmod > EPSILON) {
+            value = (log2(zmod) - floor(log2(zmod)))*0.5 + 0.5;
+         }
+         return vec3(cx_arg(z)/(2.0*PI), 1.0, value);
+         //return vec3(cx_arg(z)/(2.0*PI), 1.0, 1.0);
       }
 
       void main() {
@@ -93,7 +99,7 @@ const sketch = (p) => {
       sh.setUniform("uZoom", zoomFactor);
       sh.setUniform("uCenter", center);
 
-      inp = p.createInput("z");
+      inp = p.createInput(initialInputStr);
       inp.position(p.width/2.0 + inp.width/2.0, p.height + 10, "static");
 
       button = p.createButton("Generate");
@@ -118,9 +124,9 @@ const sketch = (p) => {
       cnv.mouseWheel((event) => {
          event.preventDefault();
          if (event.deltaY < 0) {
-            zoomFactor *= 0.9;
+            zoomFactor *= 0.97;
          } else if (event.deltaY > 0) {
-            zoomFactor *= 1.1;
+            zoomFactor *= 1.03;
          }
       });
    };
@@ -133,32 +139,38 @@ const sketch = (p) => {
    }
 
    p.touchStarted = (event) => {
-      if (!event.touches) {
-         p.mouseDragged(event);
-      } else if (event.touches.length >= 2) {
-         initialPinchDist = distance(
-            [event.touches[0].clientX, event.touches[0].clientY],
-            [event.touches[1].clientX, event.touches[1].clientY]
-         );
-      } else if (event.touches.length == 1) {
-         touchStartCoords = [p.mouseX, p.mouseY];
+      if (event.srcElement === cnv.elt) {
+         if (!event.touches) {
+            p.mouseDragged(event);
+         } else if (event.touches.length >= 2) {
+            initialPinchDist = distance(
+                [event.touches[0].clientX, event.touches[0].clientY],
+                [event.touches[1].clientX, event.touches[1].clientY]
+            );
+         } else if (event.touches.length === 1) {
+            touchStartCoords = [p.mouseX, p.mouseY];
+         }
+         event.preventDefault();
       }
    }
 
    p.touchMoved = (event) => {
-      if (event.touches.length >= 2 && initialPinchDist) {
-         let currentPinchDist = distance(
-            [event.touches[0].clientX, event.touches[0].clientY],
-            [event.touches[1].clientX, event.touches[1].clientY]
-         );
-         zoomFactor *= initialPinchDist/currentPinchDist;
-         initialPinchDist = currentPinchDist;
-      } else if (event.touches.length == 1 && touchStartCoords) {
-         center[0] += (p.mouseX - touchStartCoords[0]) * zoomFactor;
-         center[1] -= (p.mouseY - touchStartCoords[1]) * zoomFactor;
-         touchStartCoords = [p.mouseX, p.mouseY];
+      if (event.srcElement === cnv.elt) {
+         if (event.touches.length >= 2 && initialPinchDist) {
+            let currentPinchDist = distance(
+                [event.touches[0].clientX, event.touches[0].clientY],
+                [event.touches[1].clientX, event.touches[1].clientY]
+            );
+            zoomFactor *= initialPinchDist/currentPinchDist;
+            initialPinchDist = currentPinchDist;
+         } else if (event.touches.length === 1 && touchStartCoords) {
+            // console.log(p.mouseX, touchStartCoords[0], p.mouseY, touchStartCoords[1]);
+            center[0] += (p.mouseX - touchStartCoords[0]) * zoomFactor;
+            center[1] -= (p.mouseY - touchStartCoords[1]) * zoomFactor;
+            touchStartCoords = [p.mouseX, p.mouseY];
+         }
+         event.preventDefault();
       }
-      return false;
    }
 
    p.touchEnded = () => {
@@ -166,6 +178,7 @@ const sketch = (p) => {
    }
 
    p.draw = () => {
+      p.background(0);
       sh.setUniform("uResolution", [p.width, p.height]);
       sh.setUniform("uZoom", zoomFactor);
       sh.setUniform("uCenter", center);

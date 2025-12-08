@@ -8,4 +8,18 @@ hero_image_credit_text: "Sean Gonzales"
 hero_image_credit_link: "https://seangonzales.com"
 ---
 
-A Julia set can be drawn as a fractal in the complex plane by iterating a function f(z) at each point z and checking if the iterated value eventually exceeds some fixed bound. In the interactive applet below, we look at functions of the form f(z) = z^n + c. You can use the slider to change the exponent n, and by hovering your mouse over the applet you can change the value of the constant c.
+A Julia set can be drawn as a fractal in the complex plane by iterating a function f(z) at each point z and checking if the iterated value eventually exceeds some fixed bound. The set of points for which the iterated value remains bounded is called the <b>filled-in Julia set</b>. For example, consider the function f(z) = z<sup>2</sup>. If we iterate the function f starting at z = 0.5, we get the sequence
+
+<center>0.5, 0.25, 0.0625, 0.00390625, ...</center>
+
+which tends toward 0. Thus, 0.5 is in the filled-in Julia set. On the other hand, if we start with z = 2, we get the sequence
+
+<center>2, 4, 16, 256, ...</center>
+
+which tends toward infinity. Thus, 2 is not in the filled-in Julia set.
+
+<b>Exercise:</b> What is the shape of the filled-in Julia set for f(z) = z<sup>2</sup>?
+
+In the interactive applet below, we look at functions of the form f(z) = z<sup>n</sup> + c. You can use the slider to change the exponent n, and by hovering your mouse/finger over the applet you can change the value of the constant c. The black region is the filled-in Julia set for the function f(z) = z<sup>n</sup> + c. The colored region consists of the points whose iterated value tends toward infinity. The points colored red or orange are those whose iterated value approached infinity quickly; the points colored blue or purple had their iterated values approach infinity more slowly.
+
+<b>Exercise:</b> For which values of c does the filled-in Julia set (the black region) of the quadratic function f(z) = z<sup>2</sup> + c consist of one connected component?

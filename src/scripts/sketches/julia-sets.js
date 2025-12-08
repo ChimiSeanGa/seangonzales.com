@@ -5,7 +5,9 @@ const sketch = (p) => {
    let uExp = 2; // exponent of Julia set function
    let uCst = [0.0, 0.0]; // vector representing complex constant of function
    let slider = null;
-   let sliderLabel = null;
+   let sliderText = null;
+   let sliderWrapper = null;
+   let cValueText = null;
 
    let wrapper = null;
    let cnv = null;
@@ -89,21 +91,19 @@ const sketch = (p) => {
       }
    `;
 
-   const checkShaderError = (shaderObj, shaderText) => {
-      let gl = shaderObj._renderer.GL;
-      let glFragShader = gl.createShader(gl.FRAGMENT_SHADER);
-      gl.shaderSource(glFragShader, shaderText);
-      gl.compileShader(glFragShader);
-      if (!gl.getShaderParameter(glFragShader, gl.COMPILE_STATUS)) {
-         return gl.getShaderInfoLog(glFragShader);
+   const getCString = () => {
+      let cReal = (uCst[0] / p.width - 0.5) * 4;
+      let cImag = (uCst[1] / p.height - 0.5) * 4;
+      if (cImag < 0) {
+         return cReal.toFixed(2) + cImag.toFixed(2) + "i";
       }
-      return null;
+      return cReal.toFixed(2) + "+" + cImag.toFixed(2) + "i";
    }
 
    p.windowResized = () => {
       wrapper = document.getElementById("p5Wrapper");
       p.resizeCanvas(wrapper.offsetWidth, wrapper.offsetWidth);
-      sliderLabel.position(0, p.height+10, "static");
+      sliderWrapper.position(0, p.height+10, "static");
    }
 
    p.setup = () => {
@@ -129,14 +129,20 @@ const sketch = (p) => {
       slider.input(() => {
          uExp = slider.value();
       });
-      sliderLabel = p.createDiv('Exponent:');
-      sliderLabel.position(0, p.height + 10, "static");
-      sliderLabel.style('display', 'flex');
-      sliderLabel.style('gap', '10px');
-      sliderLabel.style('flex-direction', 'row');
-      sliderLabel.style('justify-content', 'center');
-      sliderLabel.style('align-items', 'center');
-      slider.parent(sliderLabel);
+      sliderText = p.createDiv("Exponent: 2");
+      sliderWrapper = p.createDiv();
+      sliderWrapper.position(0, p.height + 10, "static");
+      sliderWrapper.style('display', 'flex');
+      sliderWrapper.style('gap', '10px');
+      sliderWrapper.style('flex-direction', 'row');
+      sliderWrapper.style('justify-content', 'center');
+      sliderWrapper.style('align-items', 'center');
+      sliderText.parent(sliderWrapper);
+      slider.parent(sliderWrapper);
+
+      cValueText = p.createP("c = " + getCString());
+      cValueText.style('margin', '0 auto');
+      cValueText.style('width', '70%');
    };
 
    p.draw = () => {
@@ -145,6 +151,9 @@ const sketch = (p) => {
          && p.mouseY >= 0 && p.mouseY <= p.height) {
          uCst = [p.mouseX, p.height-p.mouseY];
       }
+
+      cValueText.html("c = " + getCString());
+      sliderText.html("Exponent: " + uExp);
 
       sh.setUniform("uResolution", [p.width, p.height]);
       sh.setUniform("uExp", [uExp, 0]);
