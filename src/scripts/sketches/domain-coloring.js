@@ -1,5 +1,6 @@
 import { glslComplex, complexParser } from "../glsl/glsl-complex";
 import { glslColor } from "../glsl/glsl-color";
+import { distance } from "mathjs";
 
 const sketch = (p) => {
    let initialInputStr = "z^3 - 1";

@@ -4,20 +4,23 @@ import PageLayout from "../../components/page-layout";
 import PageContent from "../../components/page-content";
 import Seo from "../../components/seo";
 import ProjectListItem from "../../components/project-list-item";
+import ProjectList from "../../components/project-list";
 
 const ArtPage = ({ data }) => {
    return (
       <PageLayout>
          <PageContent pageTitle="Art">
-            {
-               data.allMdx.nodes.map((node) => {
-                  return (
-                     <article key={node.id}>
-                        <ProjectListItem node={node} subdirectory={"art"} />
-                     </article>
-                  )
-               })
-            }
+             <ProjectList>
+                {
+                   data.allMdx.nodes.map((node) => {
+                      return (
+                         <article key={node.id}>
+                            <ProjectListItem node={node} subdirectory={"art"} />
+                         </article>
+                      )
+                   })
+                }
+             </ProjectList>
          </PageContent>
       </PageLayout>
    )

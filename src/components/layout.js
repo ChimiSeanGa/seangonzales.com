@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
                   <Link to="/research" className={navLinkText}>Research</Link>
                </li>
                <li className={navLinkItem}>
-                  <Link to="/coding" className={navLinkText}>Coding</Link>
+                  <Link to="/webdev" className={navLinkText}>Web Dev</Link>
                </li>
             </ul>
          </nav>

@@ -16,8 +16,8 @@ module.exports = {
      {
         resolve: "gatsby-source-filesystem",
         options: {
-           name: `coding_projects`,
-           path: `${__dirname}/coding_projects`,
+           name: `web_dev`,
+           path: `${__dirname}/web_dev`,
         }
      },
      {

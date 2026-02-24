@@ -8,7 +8,7 @@ import {StaticImage} from "gatsby-plugin-image";
 const IndexPage = () => {
    return (
       <PageLayout>
-         <PageContent pageTitle="About">
+         <PageContent pageTitle="About Me">
             <PageImage>
                <StaticImage
                   src="../images/artdisplay.png"

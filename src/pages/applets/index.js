@@ -4,20 +4,23 @@ import PageLayout from "../../components/page-layout";
 import PageContent from "../../components/page-content";
 import Seo from "../../components/seo";
 import ProjectListItem from "../../components/project-list-item";
+import ProjectList from "../../components/project-list";
 
 const AppletsPage = ({ data }) => {
    return (
       <PageLayout>
          <PageContent pageTitle="Applets">
-            {
-               data.allMdx.nodes.map((node) => {
-                  return (
-                     <article key={node.id}>
-                        <ProjectListItem node={node} subdirectory={"applets"} />
-                     </article>
-                  )
-               })
-            }
+             <ProjectList>
+                {
+                   data.allMdx.nodes.map((node) => {
+                      return (
+                         <article key={node.id}>
+                            <ProjectListItem node={node} subdirectory={"applets"} />
+                         </article>
+                      )
+                   })
+                }
+             </ProjectList>
          </PageContent>
       </PageLayout>
    )

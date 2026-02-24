@@ -34,8 +34,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
          context = { galleryPath: `${node.frontmatter.slug}/gallery` };
       } else if (node.frontmatter.variant === "applets") {
          postTemplate = path.resolve('./src/templates/applet.js');
-      } else if (node.frontmatter.variant === "coding") {
-         postTemplate = path.resolve('./src/templates/coding-project.js');
+      } else if (node.frontmatter.variant === "webdev") {
+         postTemplate = path.resolve('./src/templates/webdev-project.js');
       }
       createPage({
          path: `${node.frontmatter.variant}/${node.frontmatter.slug}`,
